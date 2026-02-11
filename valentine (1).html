@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Dear 💖</title>
+<style>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffc3a0, #ffafbd);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  text-align: center;
+  max-width: 460px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  animation: floatCard 4s ease-in-out infinite;
+  min-height: 400px;
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+h1 {
+  color: #ff4b6e;
+  margin-bottom: 5px;
+  font-size: 28px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+#typewriter {
+  font-size: 22px;
+  margin-bottom: 15px;
+  min-height: 30px;
+  font-weight: 500;
+  color: #333;
+}
+
+#countdown {
+  font-size: 16px;
+  color: #ff4b6e;
+  margin-bottom: 20px;
+  font-weight: 600;
+  min-height: 24px;
+}
+
+#buttonContainer {
+  margin-top: 20px;
+  position: relative;
+  min-height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#yesBtn {
+  background-color: #ff4b6e;
+  color: white;
+  position: relative;
+  z-index: 10;
+}
+
+#yesBtn:hover {
+  transform: scale(1.1);
+  background-color: #e63946;
+  box-shadow: 0 6px 20px rgba(255, 75, 110, 0.4);
+}
+
+#yesBtn:active {
+  transform: scale(1.05);
+}
+
+#noBtn {
+  background-color: #ddd;
+  color: #666;
+  position: absolute;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 5;
+}
+
+#noBtn:hover {
+  background-color: #ccc;
+}
+
+#noBtn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#gifContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+}
+
+.gif-item {
+  animation: fadeInScale 0.5s ease forwards;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.gif-item.persistent {
+  opacity: 1 !important;
+}
+
+#playfulMessage {
+  display: none;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ff4b6e;
+  font-weight: 700;
+  animation: bounceIn 0.8s ease forwards;
+  text-shadow: 2px 2px 4px rgba(255, 75, 110, 0.2);
+}
+
+@keyframes bounceIn {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.3); 
+  }
+  50% { 
+    transform: scale(1.1); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes fadeInScale {
+  from { 
+    opacity: 0; 
+    transform: scale(0.5) rotate(-10deg); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1) rotate(0deg); 
+  }
+}
+
+#dateDetails {
+  background: #fff5f7;
+  border: 2px dashed #ff4b6e;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+  animation: fadeIn 1s ease forwards;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#dateDetails.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+#dateDetails strong {
+  color: #ff4b6e;
+  font-weight: 700;
+}
+
+#dateDetails div {
+  margin: 8px 0;
+}
+
+#afterYes {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+#afterYes h2 {
+  color: #ff4b6e;
+  margin-top: 20px;
+  font-size: 26px;
+}
+
+#afterYes p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  margin: 15px 0;
+}
+
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 24px;
+  animation: floatUp 6s linear forwards;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes floatUp {
+  0% { 
+    transform: translateY(0) rotate(0deg); 
+    opacity: 0.7; 
+  }
+  100% { 
+    transform: translateY(-110vh) rotate(360deg); 
+    opacity: 0; 
+  }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: fall 3s linear forwards;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .card {
+    padding: 30px 20px;
+    min-height: 350px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  #typewriter {
+    font-size: 18px;
+  }
+  
+  button {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+  
+  #buttonContainer {
+    min-height: 100px;
+  }
+}
+
+/* Prevent text selection on buttons */
+button {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+  <h1>Dear Khelyana 💖</h1>
+  <div class="subtitle">(also known as Yannie, My Lovelove)</div>
+  <div id="typewriter"></div>
+  <div id="countdown"></div>
+  
+  <div id="dateDetails">
+    <div><strong>📍 Venue:</strong> Robinsons Mall, Pinto Art Museum, and Antipolo Plaza</div>
+    <div><strong>📅 When:</strong> February 14, 2026</div>
+    <div><strong>👔 Dresscode:</strong> No Dresscode</div>
+    <div><strong>✨ Perks:</strong> Poging Kadate, Free food, Free transpo</div>
+  </div>
+  
+  <div id="buttonContainer">
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+  
+  <div id="afterYes" style="display:none;">
+    <h2>🎉 Yay! You said YES! 🎉</h2>
+    <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dWFqYW8zNnhsZWY5NjJ4N3o2aGJxcXpid3g4ZmhhbjFlZTdyeDl5ayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mnR01wfMUTo9hGXUvl/giphy.gif" 
+         alt="Celebration" 
+         style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin: 15px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+    <p>I'm so happy! Can't wait for our Valentine's date! 💕</p>
+    <p>Get ready for the most amazing day ever! 🌹</p>
+  </div>
+  
+  <div id="gifContainer"></div>
+  
+  <div id="playfulMessage">HAHAHA bawal na tumanggi! 😆</div>
+</div>
+
+<script>
+// Typewriter effect
+const message = "Will you be my valentine?";
+let index = 0;
+
+function typeEffect() {
+  if (index < message.length) {
+    document.getElementById("typewriter").innerHTML += message.charAt(index);
+    index++;
+    setTimeout(typeEffect, 70);
+  }
+}
+
+// Start typewriter after a brief delay
+setTimeout(typeEffect, 500);
+
+// Countdown
+const valentinesDate = new Date(2026, 1, 14, 0, 0, 0);
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = valentinesDate - now;
+  
+  if (distance < 0) {
+    document.getElementById("countdown").innerHTML = "💝 It's finally our date day! 💝";
+    return;
+  }
+  
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
+  
+  document.getElementById("countdown").innerHTML =
+    `⏰ Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown(); // Initial call
+
+// Gif URLs
+const gifUrls = [
+  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXY2OG5wNGpqcWhzaTM0bHB1ZXFpc3U3bHV4aGZyYm93YjA4eW16OSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KztT2c4u8mYYUiMKdJ/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXY2OG5wNGpqcWhzaTM0bHB1ZXFpc3U3bHV4aGZyYm93YjA4eW16OSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/pY8jLmZw0ElqvVeRH4/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXY2OG5wNGpqcWhzaTM0bHB1ZXFpc3U3bHV4aGZyYm93YjA4eW16OSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/sP0SLcBdcPYqKKnfaY/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cWlva3R0cnRzMWNvMDBzNzQwZm92Z29xOHNnZjJub2EwNm4wNDY4YSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YhYgIyRd7dETRsOtK6/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3Y25ybmR1Ym9saTBtNjk2ajkyb2hhdjV1dG0xYWE3czYzeTNhZXg4cSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qtgkm1xVilBFWD63CT/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3Nmd0ZzNjczAyOHdpOXB5ejJqc3BxaHIxdTg1dHBvaXo3eGt1ZzdxdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/se8tmt1xasC9ByWNau/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3Y25ybmR1Ym9saTBtNjk2ajkyb2hhdjV1dG0xYWE3czYzeTNhZXg4cSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mi4ec226vjAkehSLk0/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dWFqYW8zNnhsZWY5NjJ4N3o2aGJxcXpid3g4ZmhhbjFlZTdyeDl5ayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ntabtjuLcHMlsCpklz/giphy.gif"
+];
+
+// Button labels for different states
+const yesLabels = ["Yes", "Sige, payag na", "HAHAHAH oki", "Awww, sige na nga", "Yes na YES!"];
+const noLabels = ["No", "Noooo", "AYAW", "Iyak ka muna", "Still no?"];
+
+let noClicks = 0;
+let clicksSinceLastUpdate = 0;
+let isMoving = false;
+
+// Move "No" button randomly within the card
+function moveButton() {
+  if (isMoving) return;
+  isMoving = true;
+  
+  const noBtn = document.getElementById("noBtn");
+  const card = document.getElementById("card");
+  const container = document.getElementById("buttonContainer");
+  const yesBtn = document.getElementById("yesBtn");
+  
+  // Get dimensions
+  const containerRect = container.getBoundingClientRect();
+  const noBtnRect = noBtn.getBoundingClientRect();
+  const yesBtnRect = yesBtn.getBoundingClientRect();
+  
+  // Calculate available space
+  const maxX = containerRect.width - noBtn.offsetWidth;
+  const maxY = containerRect.height - noBtn.offsetHeight;
+  
+  let x, y, attempts = 0;
+  const minDistance = 120; // Minimum distance from Yes button
+  
+  // Find a position that's far enough from the Yes button
+  do {
+    x = Math.random() * maxX;
+    y = Math.random() * maxY;
+    
+    // Calculate relative position of Yes button within container
+    const yesX = yesBtnRect.left - containerRect.left;
+    const yesY = yesBtnRect.top - containerRect.top;
+    
+    const distance = Math.sqrt(Math.pow(x - yesX, 2) + Math.pow(y - yesY, 2));
+    
+    if (distance > minDistance || attempts > 20) break;
+    attempts++;
+  } while (true);
+  
+  noBtn.style.left = `${x}px`;
+  noBtn.style.top = `${y}px`;
+  
+  setTimeout(() => { isMoving = false; }, 300);
+}
+
+// Handle "No" button click
+function sayNo() {
+  noClicks++;
+  clicksSinceLastUpdate++;
+  
+  moveButton();
+  
+  // Clear previous gifs before showing new one
+  const gifContainer = document.getElementById("gifContainer");
+  gifContainer.innerHTML = "";
+  
+  // Show a gif (now persistent!)
+  const gif = document.createElement("img");
+  gif.className = "gif-item persistent";
+  gif.style.width = "150px";
+  gif.style.height = "150px";
+  gif.style.objectFit = "cover";
+  
+  let gifIndex = Math.min(noClicks - 1, gifUrls.length - 1);
+  gif.src = gifUrls[gifIndex];
+  
+  gifContainer.appendChild(gif);
+  
+  // Hide No button after 5 clicks and show playful message
+  if (noClicks >= 5) {
+    const noBtn = document.getElementById("noBtn");
+    noBtn.classList.add('hidden');
+    setTimeout(() => {
+      noBtn.style.display = 'none';
+      // Show the playful message
+      document.getElementById("playfulMessage").style.display = 'block';
+    }, 300);
+  }
+  
+  // Update button labels every 3 clicks
+  if (clicksSinceLastUpdate >= 3) {
+    updateButtonLabels();
+    clicksSinceLastUpdate = 0;
+  }
+  
+  // Create floating hearts
+  createHeart();
+}
+
+// "Yes" button handler
+function sayYes() {
+  // Fade out the date details
+  const dateDetails = document.getElementById("dateDetails");
+  dateDetails.classList.add('fade-out');
+  
+  setTimeout(() => {
+    dateDetails.style.display = 'none';
+    // Show the success message
+    document.getElementById("afterYes").style.display = "block";
+  }, 500);
+  
+  document.getElementById("buttonContainer").style.display = "none";
+  document.getElementById("gifContainer").innerHTML = "";
+  document.getElementById("playfulMessage").style.display = "none";
+  
+  createConfetti();
+  createMultipleHearts();
+}
+
+// Create confetti effect
+function createConfetti() {
+  const colors = ['#ff4b6e', '#ffc3a0', '#fad0c4', '#ff9a9e', '#ffafbd'];
+  
+  for (let i = 0; i < 60; i++) {
+    setTimeout(() => {
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+      confetti.style.animationDelay = Math.random() * 0.5 + "s";
+      document.body.appendChild(confetti);
+      
+      setTimeout(() => { confetti.remove(); }, 5000);
+    }, i * 50);
+  }
+}
+
+// Create floating heart
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💕";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+  document.body.appendChild(heart);
+  
+  setTimeout(() => { heart.remove(); }, 7000);
+}
+
+// Create multiple hearts
+function createMultipleHearts() {
+  for (let i = 0; i < 15; i++) {
+    setTimeout(createHeart, i * 200);
+  }
+}
+
+// Update button labels
+function updateButtonLabels() {
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+  const labelIndex = Math.min(Math.floor(noClicks / 3), yesLabels.length - 1);
+  
+  yesBtn.innerText = yesLabels[labelIndex];
+  noBtn.innerText = noLabels[labelIndex];
+}
+
+// Initialize
+updateButtonLabels();
+
+// Add hover effect to move No button on desktop
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseenter", function(e) {
+  if (window.innerWidth > 600) {
+    moveButton();
+  }
+});
+
+// Event listeners
+noBtn.addEventListener("click", sayNo);
+document.getElementById("yesBtn").addEventListener("click", sayYes);
+
+// Initial position for No button
+setTimeout(() => {
+  moveButton();
+}, 100);
+</script>
+
+</body>
+</html>
